@@ -19,7 +19,6 @@ const CurrentWeather = ({ weather }) => {
       </div>
         <div className="col">
           <img
-            id="wicon"
             width="100"
             height="100"
             src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`}

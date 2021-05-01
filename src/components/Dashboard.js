@@ -36,6 +36,7 @@ const Dashboard = ({
         />
       </form>
       <CurrentWeather weather={weather.current} />
+      <h2 id="forecast">{interval} Forecast</h2>
       <Card>
         <Card.Header>
           <Nav variant="tabs" defaultActiveKey="#hourly">

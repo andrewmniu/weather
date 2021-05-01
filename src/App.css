@@ -64,6 +64,9 @@
   margin-right: 10px;
 }
 
+#forecast {
+  text-transform: capitalize;
+}
 
 .daily-temperature {
   font: 45px Arial, sans-serif;
@@ -80,5 +83,5 @@
 }
 
 .date {
-  font: 25px Arial, sans-serif;  
+  font: 25px Arial, sans-serif;
 }

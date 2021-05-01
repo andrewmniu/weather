@@ -11,18 +11,17 @@ const HourlyWeather = ({weather}) => {
   return (
     <div className="container hourly-weather">
       <div className="row align-items-center justify-content-evenly">
-        <div className="col">
-          <p className="hourly-temperature">{Math.round(weather.temp)}&deg;F</p>
-        </div>
         <div className="col interval-description">
           <img
-            id="wicon"
             width="75"
             height="75"
             src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
             alt="Weather icon"
             />
           {weather.weather[0].description}
+        </div>
+        <div className="col">
+          <p className="hourly-temperature">{Math.round(weather.temp)}&deg;F</p>
         </div>
         <div className="col date">
           {formatDate(weather.dt)}

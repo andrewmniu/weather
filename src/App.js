@@ -7,18 +7,18 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 function App() {
   const [weather, setWeather] = useState(null);
   const [searchText, setSearchText] = useState("");
-  const [location, setLocation] = useState(22903);
+  const [location, setLocation] = useState("Charlottesville");
   const [hideAlert, setHideAlert] = useState(true);
 
   useEffect(() => {
     getWeather(location);
   }, []);
 
-  const getCoordinates = (zip) => {
+  const getCoordinates = (location) => {
     let latitude, longitude;
     const url = new URL("https://api.openweathermap.org/data/2.5/weather");
     url.searchParams.append("appid", API_KEY);
-    url.searchParams.append("zip", zip);
+    url.searchParams.append("q", location);
     return fetch(url)
       .then((resp) => {
         return resp.json();
@@ -35,9 +35,9 @@ function App() {
       });
   };
 
-  const getWeather = async (zip) => {
+  const getWeather = async (location) => {
     let lat, long;
-    await getCoordinates(zip).then((coords) => {
+    await getCoordinates(location).then((coords) => {
       lat = coords[0];
       long = coords[1];
     });
@@ -55,11 +55,9 @@ function App() {
 
     fetch(url)
       .then((resp) => {
-        console.log(resp);
         return resp.json();
       })
       .then((obj) => {
-        console.log(obj);
         setWeather(obj);
       });
       return "success";
